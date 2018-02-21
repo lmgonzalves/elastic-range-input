@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elastic Range Input</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+
+<!-- Wrapper for the range input slider -->
+<div class="range__wrapper">
+    <!-- The real input, it will be hidden, but updated properly with Javascript -->
+    <!-- For a production usage, you may want to add a label, and also put it inside a form -->
+    <input class="range__input" type="range" min="30" max="70" value="64"/>
+
+    <!-- SVG elements -->
+    <svg class="range__slider" width="320px" height="480px" viewBox="0 0 320 480">
+        <defs>
+            <!-- Range marks symbol, it will be reused below -->
+            <symbol id="range__marks" shape-rendering="crispEdges">
+                <path class="range__marks__path" d="M 257 30 l 33 0"></path>
+                <path class="range__marks__path" d="M 268 60 l 22 0"></path>
+                <path class="range__marks__path" d="M 278 90 l 12 0"></path>
+                <path class="range__marks__path" d="M 278 120 l 12 0"></path>
+                <path class="range__marks__path" d="M 278 150 l 12 0"></path>
+                <path class="range__marks__path" d="M 278 180 l 12 0"></path>
+                <path class="range__marks__path" d="M 278 210 l 12 0"></path>
+                <path class="range__marks__path" d="M 278 240 l 12 0"></path>
+                <path class="range__marks__path" d="M 278 270 l 12 0"></path>
+                <path class="range__marks__path" d="M 278 300 l 12 0"></path>
+                <path class="range__marks__path" d="M 278 330 l 12 0"></path>
+                <path class="range__marks__path" d="M 278 360 l 12 0"></path>
+                <path class="range__marks__path" d="M 278 390 l 12 0"></path>
+                <path class="range__marks__path" d="M 268 420 l 22 0"></path>
+                <path class="range__marks__path" d="M 257 450 l 33 0"></path>
+            </symbol>
+            <!-- This clipPath element will allow us to hide/show the white marks properly -->
+            <!-- The `path` used here is an exact copy of the `path` used for the slider below -->
+            <clipPath id="range__slider__clip-path">
+                <path class="range__slider__path" d="M 0 480 l 320 0 l 0 480 l -320 0 Z"></path>
+            </clipPath>
+        </defs>
+        <!-- Pink marks -->
+        <use xlink:href="#range__marks" class="range__marks__pink"></use>
+        <!-- Slider `path`, that will be morphed properly on user interaction -->
+        <path class="range__slider__path" d="M 0 480 l 320 0 l 0 480 l -320 0 Z"></path>
+        <!-- Clipped white marks -->
+        <use xlink:href="#range__marks" class="range__marks__white" clip-path="url(#range__slider__clip-path)"></use>
+    </svg>
+
+    <!-- Range values -->
+    <div class="range__values">
+        <div class="range__value range__value--top">
+            <!-- This element will be updated in the way: `100 - inputValue` -->
+            <span class="range__value__number range__value__number--top"></span>
+            <!-- Some text for the `top` value -->
+            <span class="range__value__text range__value__text--top">
+                <span>Points</span>
+                <span>You Need</span>
+            </span>
+        </div>
+        <div class="range__value range__value--bottom">
+            <!-- This element will be updated with the `inputValue` -->
+            <span class="range__value__number range__value__number--bottom"></span>
+            <!-- Some text for the `bottom` value -->
+            <span class="range__value__text range__value__text--bottom">
+                <span>Points</span>
+                <span>You Have</span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<script src='js/anime.min.js'></script>
+<script src='js/demo.js'></script>
+</body>
+</html>
