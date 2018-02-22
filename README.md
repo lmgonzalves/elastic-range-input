@@ -6,7 +6,7 @@ Fancy component to simulate a range `input`, based on [this dribbble shot](https
 
 [**DEMO**](http://lmgonzalves.github.io/elastic-range-input/)
 
-**TUTORIAL** (coming soon)
+[**TUTORIAL**](https://scotch.io/tutorials/build-an-elastic-range-input-with-svg-and-animejs)
 
 [**CODEPEN**](https://codepen.io/lmgonzalves/full/NyzKdr/)
 
